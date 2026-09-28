@@ -23,6 +23,10 @@ Never commit directly to `main`.
 `Type(KEY-N): message` — e.g. `Docs(PLAT-10): add ADR 0011 polyrepo in e-commerce-learn org`,
 `Chore(PLAT-2): move postgres to infra/compose.yaml`.
 
+Message style: one short lowercase clause starting with a verb (`add`, `move`, `set`…), naming **one** main
+change — no chains of several actions, no trailing period. Don't type `(#N)`; GitHub appends the PR number on
+squash merge. Reference: `Docs(IDN-11): add ADR 0012 auth and users as separate services (#3)`.
+
 | Type | For |
 |---|---|
 | `Feat` | New behaviour |
