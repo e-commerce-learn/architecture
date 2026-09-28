@@ -26,7 +26,7 @@ When finished:
 |---|---|
 | Services | NestJS 11, TypeScript — one independent project per repo, zero shared code |
 | Database | PostgreSQL 16 — raw SQL only, one database + role per service |
-| Auth | JWT issued by the identity service, verified only at the gateway |
+| Auth | JWT issued by the auth service, verified only at the gateway |
 | Real-time | WebSockets |
 | Background jobs | BullMQ, cron |
 | Cache / queue | Redis |
@@ -43,7 +43,8 @@ Full table with owners, ports and databases: [`services.md`](services.md).
 |---|---|
 | [`architecture`](https://github.com/e-commerce-learn/architecture) | This repo — global docs |
 | `infra-postgres` | PostgreSQL for all services (planned) |
-| `backend-identity` | Login, registration, JWTs (planned) |
+| `backend-auth` | Login, registration, JWTs (planned) |
+| `backend-users` | User accounts and profiles (planned, no repo yet) |
 
 ## Start here
 

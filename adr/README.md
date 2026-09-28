@@ -43,7 +43,8 @@ and are all **global**.
 | [0008](0008-multi-team-ownership-and-compose-layout.md) | Simulated multi-team ownership; per-service compose fragments + root `include:` | Accepted (partly overridden by [0011](0011-polyrepo-e-commerce-learn-org.md)) | 2026-09-25 |
 | [0009](0009-jira-team-spaces.md) | Jira: one company-managed space per team, shared workflow | Accepted | 2026-09-25 |
 | [0010](0010-record-decisions-as-adrs.md) | Record decisions as ADRs; DoR/DoD; initiative labels | Accepted | 2026-09-26 |
-| [0011](0011-polyrepo-e-commerce-learn-org.md) | Polyrepo in the `e-commerce-learn` GitHub org (overrides parts of 0004, 0008; all of 0005) | Accepted | 2026-09-27 |
+| [0011](0011-polyrepo-e-commerce-learn-org.md) | Polyrepo in the `e-commerce-learn` GitHub org (overrides parts of 0004, 0008; all of 0005) | Accepted (partly overridden by [0012](0012-auth-and-users-separate-services.md)) | 2026-09-27 |
+| [0012](0012-auth-and-users-separate-services.md) | Auth and Users are two separate services (`backend-auth`, `backend-users`) | Accepted | 2026-09-28 |
 
 Where an older ADR mentions paths like `docs/adr/`, `CLAUDE.md` or `backend/<service>/`, it means the old
 monorepo (`Learn-folder/projects/ecommerce/`) where it was written. The accepted text isn't edited; the
