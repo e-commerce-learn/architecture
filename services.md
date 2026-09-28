@@ -10,7 +10,7 @@ Local path = where the repo is cloned under `~/Desktop/Code/e-commerce-learn/`.
 |---|---|---|---|---|---|---|---|
 | [`architecture`](https://github.com/e-commerce-learn/architecture) | `architecture/` | Platform | `PLAT` | Global docs: ADRs, process, service catalog, roadmap | — | — | Live |
 | `infra-postgres` | `infra/infra-postgres/` | Platform | `PLAT` | PostgreSQL 16 for all services — one database + one role per service ([ADR 0004](adr/0004-microservices-from-phase-1.md)) | 5432 | hosts `auth_db` (role `auth_service`) | Planned — PLAT-12. Runs today from the old monorepo copy (container `ecommerce-postgres-1`, volume `ecommerce_api_pgdata`) |
-| `backend-auth` | `backend/backend-auth/` | Identity | `IDN` | NestJS 11 service: credentials, login, registration, issuing JWTs ([ADR 0012](adr/0012-auth-and-users-separate-services.md)) | 3000 (`PORT` env, default) | `auth_db` as `auth_service` | Planned — IDN-6. Code lives today in the old monorepo at `backend/auth/` |
+| [`backend-auth`](https://github.com/e-commerce-learn/backend-auth) | `backend/backend-auth/` | Identity | `IDN` | NestJS 11 service: credentials, login, registration, issuing JWTs ([ADR 0012](adr/0012-auth-and-users-separate-services.md)) | 3000 (`PORT` env, default) | `auth_db` as `auth_service` | Live — uses Postgres from the old monorepo copy until PLAT-12 |
 
 ## Planned, no repo yet
 
