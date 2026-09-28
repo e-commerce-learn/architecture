@@ -9,7 +9,7 @@ Why it's set up this way: [ADR 0009](../adr/0009-jira-team-spaces.md), [ADR 0010
 | Space | Team | Owns | Board |
 |---|---|---|---|
 | `PLAT` | Platform/DevOps | `architecture`, `infra-*` repos, CI, gateway | PLAT board |
-| `IDN` | Identity | `backend-identity` | IDN board |
+| `IDN` | Identity | `backend-auth`, `backend-users` | IDN board |
 | `COM`, `CRM`, `SHOP` (future) | Commerce / CRM FE / Storefront FE | — | create when the phase starts |
 
 Repo → team mapping: [`services.md`](../services.md).

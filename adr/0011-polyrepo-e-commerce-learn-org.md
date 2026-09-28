@@ -10,6 +10,9 @@
 > [0005](0005-folder-layout.md) (all), [0008](0008-multi-team-ownership-and-compose-layout.md)
 > (root `include:` part). See [What this overrides](#what-this-overrides).
 
+> **Note:** Partly overridden by [ADR 0012](0012-auth-and-users-separate-services.md) — the repo name
+> `backend-identity` becomes `backend-auth` (plus `backend-users` later). The `backend-<service>` rule still applies.
+
 ## Context
 
 A core purpose of this project is to practice how a real org with separate teams organizes its work

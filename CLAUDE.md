@@ -76,7 +76,7 @@ Update these immediately when the event happens — don't wait to be asked.
 | No ORM | Raw SQL prepared statements only. Never suggest an ORM or query builder. | [0001](adr/0001-no-orm.md) |
 | Naming | `snake_case` in the DB, `camelCase` in the API; map in the service layer, never return raw column names. | [0007](adr/0007-naming-snake-case-db-camel-case-api.md) |
 | Zero shared code | No shared libraries between services; each repo has its own DTOs, interceptors, response wrapper. | [0004](adr/0004-microservices-from-phase-1.md) |
-| Auth | JWT issued by the identity service, verified **only at the gateway**; downstream services never re-verify. | [0004](adr/0004-microservices-from-phase-1.md) |
+| Auth | JWT issued by the auth service, verified **only at the gateway**; downstream services never re-verify. | [0004](adr/0004-microservices-from-phase-1.md) |
 | DB isolation | One Postgres container, one database + one role per service, `CONNECT` only on its own database. | [0004](adr/0004-microservices-from-phase-1.md) |
 | Compose | Dev + CI only; each repo owns its compose file + `.env`. How repos run together locally: PLAT-13. | [0008](adr/0008-multi-team-ownership-and-compose-layout.md), [0011](adr/0011-polyrepo-e-commerce-learn-org.md) |
 
@@ -109,4 +109,5 @@ Full records in [`adr/`](adr/README.md). This index holds the rule Claude must f
 | [0008](adr/0008-multi-team-ownership-and-compose-layout.md) | Simulated multi-team ownership (root `include:` overridden by 0011) | Frame infra choices by owning team. Each repo owns its compose file + `.env`; compose is dev/CI only. |
 | [0009](adr/0009-jira-team-spaces.md) | Jira: one space per team, shared workflow | Follow [`process/jira.md`](process/jira.md). |
 | [0010](adr/0010-record-decisions-as-adrs.md) | ADRs, DoR/DoD, initiative labels | Record decisions as ADRs; apply [DoR/DoD](process/definition-of-ready-done.md); label initiative tickets `init-<name>`. |
-| [0011](adr/0011-polyrepo-e-commerce-learn-org.md) | Polyrepo in the `e-commerce-learn` org | Prefixed repo names; clone to `~/Desktop/Code/e-commerce-learn/<group>/<repo>`; squash merge only; global ADRs here, local in `<repo>/docs/adr/`, local can't override global. |
+| [0011](adr/0011-polyrepo-e-commerce-learn-org.md) | Polyrepo in the `e-commerce-learn` org (repo name `backend-identity` overridden by 0012) | Prefixed repo names; clone to `~/Desktop/Code/e-commerce-learn/<group>/<repo>`; squash merge only; global ADRs here, local in `<repo>/docs/adr/`, local can't override global. |
+| [0012](adr/0012-auth-and-users-separate-services.md) | Auth and Users are two services | Name repos after the service, not the team: `backend-auth` (credentials, JWTs, `auth_db`), `backend-users` (accounts/profiles, `users_db`), both Identity-owned. |
