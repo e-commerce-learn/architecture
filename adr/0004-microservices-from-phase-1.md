@@ -6,6 +6,9 @@
 
 > **Note:** Partly overridden by [ADR 0011](0011-polyrepo-e-commerce-learn-org.md) — the monorepo part
 > (one monorepo of independent projects, living inside `Learn-folder`). Everything else still applies.
+>
+> **Note:** Partly overridden by [ADR 0013](0013-platform-mirrors-company-stack.md) — the "No Consul /
+> service registry" point: Consul is used together with Nomad (Compose's DNS stays for local dev).
 
 ## Context
 

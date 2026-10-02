@@ -36,7 +36,7 @@ and are all **global**.
 | [0001](0001-no-orm.md) | Raw SQL only, no ORM | Accepted | — |
 | [0002](0002-reset-sqlite-to-postgres.md) | Reset: rebuild on PostgreSQL instead of SQLite | Accepted | 2026-08-08 |
 | [0003](0003-restart-docs-from-zero.md) | Delete all docs and restart them alongside the code | Accepted | 2026-08-08 |
-| [0004](0004-microservices-from-phase-1.md) | Microservices from Phase 1, independent-projects monorepo | Accepted (partly overridden by [0011](0011-polyrepo-e-commerce-learn-org.md)) | 2026-08-08 |
+| [0004](0004-microservices-from-phase-1.md) | Microservices from Phase 1, independent-projects monorepo | Accepted (partly overridden by [0011](0011-polyrepo-e-commerce-learn-org.md), [0013](0013-platform-mirrors-company-stack.md)) | 2026-08-08 |
 | [0005](0005-folder-layout.md) | Folder layout: `backend/`, `frontend/`, `infra/` | Accepted (overridden by [0011](0011-polyrepo-e-commerce-learn-org.md)) | 2026-09-25 |
 | [0006](0006-frontends-crm-and-storefront.md) | Two frontends: Angular CRM, low-priority storefront | Accepted | 2026-09-25 |
 | [0007](0007-naming-snake-case-db-camel-case-api.md) | `snake_case` in the DB, `camelCase` in the API | Accepted | — |
@@ -45,6 +45,10 @@ and are all **global**.
 | [0010](0010-record-decisions-as-adrs.md) | Record decisions as ADRs; DoR/DoD; initiative labels | Accepted | 2026-09-26 |
 | [0011](0011-polyrepo-e-commerce-learn-org.md) | Polyrepo in the `e-commerce-learn` GitHub org (overrides parts of 0004, 0008; all of 0005) | Accepted (partly overridden by [0012](0012-auth-and-users-separate-services.md)) | 2026-09-27 |
 | [0012](0012-auth-and-users-separate-services.md) | Auth and Users are two separate services (`backend-auth`, `backend-users`) | Accepted | 2026-09-28 |
+| [0013](0013-platform-mirrors-company-stack.md) | Platform tools follow the company stack: Gravitee, Elastic, Grafana, Nomad + Consul + Vault (Mac + MSI cluster later); Nomad + Consul on a Mac + MSI cluster later (overrides "no Consul" in 0004); Grafana, Vault decided | Accepted | 2026-09-28 |
+| [0014](0014-tickets-just-in-time.md) | Jira tickets just in time; decisions in ADRs, later work in the roadmap | Accepted | 2026-09-28 |
+| [0015](0015-private-infrastructure-behind-vpn.md) | Infrastructure is private: reachable only through a VPN, secured with certificates | Accepted | 2026-09-30 |
+| [0016](0016-camunda-for-long-running-workflows.md) | Camunda 8 for long-running business workflows, only where needed | Accepted | 2026-10-02 |
 
 Where an older ADR mentions paths like `docs/adr/`, `CLAUDE.md` or `backend/<service>/`, it means the old
 monorepo (`Learn-folder/projects/ecommerce/`) where it was written. The accepted text isn't edited; the

@@ -56,7 +56,9 @@ Update these immediately when the event happens — don't wait to be asked.
 
 | Trigger | Update |
 |---|---|
-| Decision made that affects every repo | New global ADR in `adr/` + row in `adr/README.md` + row in [Decisions](#decisions) below + Jira ticket |
+| Decision made that affects every repo | New global ADR in `adr/` + row in `adr/README.md` + row in [Decisions](#decisions) below (Jira ticket only for the work it starts soon — [0014](adr/0014-tickets-just-in-time.md)) |
+| Work agreed but not starting within ~1–2 sprints | `roadmap.md` — not a Jira ticket ([0014](adr/0014-tickets-just-in-time.md)) |
+| Sprint planning starts | Read `roadmap.md` + un-ticketed ADR follow-ups **before** the Jira backlog; propose from both ([`process/jira.md`](process/jira.md#sprint-planning)) |
 | Decision made that affects one repo | Local ADR in that repo's `docs/adr/` + its index |
 | An ADR overrides an older one | Note under the old ADR's header; "(partly) overridden by NNNN" in the index — nothing else in the old ADR changes |
 | New repo created | Row in `services.md` (matching PR in `architecture`); repo checklist in `process/git-workflow.md` |
@@ -102,7 +104,7 @@ Full records in [`adr/`](adr/README.md). This index holds the rule Claude must f
 | [0001](adr/0001-no-orm.md) | Raw SQL only, no ORM | Never suggest an ORM or query builder, regardless of complexity. |
 | [0002](adr/0002-reset-sqlite-to-postgres.md) | 2026-08-08 reset: rebuild on PostgreSQL | Don't pre-write DB layer code unless explicitly asked — the user writes it. |
 | [0003](adr/0003-restart-docs-from-zero.md) | All docs deleted, restarted with the code | Never reconstruct deleted docs from memory/git; write fresh with the user. |
-| [0004](adr/0004-microservices-from-phase-1.md) | Microservices from Phase 1 (monorepo part overridden by 0011) | Each service standalone; zero shared code; no Consul; JWT verified only at the gateway; one DB + role per service. |
+| [0004](adr/0004-microservices-from-phase-1.md) | Microservices from Phase 1 (monorepo part overridden by 0011, "no Consul" by 0013) | Each service standalone; zero shared code; JWT verified only at the gateway; one DB + role per service. |
 | [0005](adr/0005-folder-layout.md) | Folder layout (overridden by 0011) | Use repo prefixes + local group folders instead. Create repos only when their work starts. |
 | [0006](adr/0006-frontends-crm-and-storefront.md) | Angular CRM + low-priority storefront | Don't start the CRM before Categories, Inventory and Customer Profiles are done; frontends call only the gateway. |
 | [0007](adr/0007-naming-snake-case-db-camel-case-api.md) | `snake_case` DB, `camelCase` API | Map in the service layer; never return raw column names. |
@@ -111,3 +113,7 @@ Full records in [`adr/`](adr/README.md). This index holds the rule Claude must f
 | [0010](adr/0010-record-decisions-as-adrs.md) | ADRs, DoR/DoD, initiative labels | Record decisions as ADRs; apply [DoR/DoD](process/definition-of-ready-done.md); label initiative tickets `init-<name>`. |
 | [0011](adr/0011-polyrepo-e-commerce-learn-org.md) | Polyrepo in the `e-commerce-learn` org (repo name `backend-identity` overridden by 0012) | Prefixed repo names; clone to `~/Desktop/Code/e-commerce-learn/<group>/<repo>`; squash merge only; global ADRs here, local in `<repo>/docs/adr/`, local can't override global. |
 | [0012](adr/0012-auth-and-users-separate-services.md) | Auth and Users are two services | Name repos after the service, not the team: `backend-auth` (credentials, JWTs, `auth_db`), `backend-users` (accounts/profiles, `users_db`), both Identity-owned. |
+| [0013](adr/0013-platform-mirrors-company-stack.md) | Platform tools follow the user's company stack | Gateway = Gravitee, logs/tracing = Elastic (+ APM via OpenTelemetry), dashboards/metrics = Grafana (+ likely Prometheus), runtime = Nomad + discovery = Consul on a Mac + MSI-laptop cluster (Compose stays for local dev). secrets = Vault, arriving with Nomad (P6; Nomad injects secrets, services contain no Vault code). Don't start a tool before its roadmap trigger (P4, P5, P6–P7). Self-hosted free editions only. |
+| [0014](adr/0014-tickets-just-in-time.md) | Jira tickets just in time | Decision made → ADR now. Later work → `roadmap.md`, not Jira. Open a ticket only when work is ~1–2 sprints away, or for an open question that blocks it. |
+| [0015](adr/0015-private-infrastructure-behind-vpn.md) | Infrastructure private behind a VPN, with certificates | Deployed: only the Gravitee gateway + frontends are public; databases, admin UIs, consoles and services are VPN-only; TLS everywhere. Local: bind ports to `127.0.0.1`. VPN product and certificate source not decided yet. |
+| [0016](adr/0016-camunda-for-long-running-workflows.md) | Camunda 8 where a workflow needs it | Use Camunda (BPMN + job workers in the services) only for flows that span services with compensation, wait on timers/events, or have human steps — e.g. order fulfilment, returns, vendor onboarding. Never for plain CRUD. Propose it when such a phase starts. |

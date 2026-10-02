@@ -48,9 +48,13 @@ Every ticket uses: **Background / Why / What to do / Acceptance criteria / Out o
 
 ## Decisions
 
-Every decision or piece of work agreed in conversation gets a ticket in the owning team's space (tell the
-user the key). Decisions also get an ADR — [`adr/README.md`](../adr/README.md). Decision tickets carry the
-label `decision`.
+Tickets are opened **just in time** ([ADR 0014](../adr/0014-tickets-just-in-time.md)):
+
+- **A decision made** → an ADR right away ([`adr/README.md`](../adr/README.md)).
+- **Work agreed for later** → [`roadmap.md`](../roadmap.md), not a ticket.
+- **Work about to start** (about 1–2 sprints away) → a ticket in the owning team's space (tell the user the
+  key). Its roadmap note moves into the ticket.
+- **An open question blocking upcoming work** → a ticket with the label `decision`.
 
 ## Cross-team work
 
@@ -73,6 +77,21 @@ this site's edit screens, so the label is used instead.)
 - 1-week sprints, one per team space. The user has ~5–6 hours a week — size sprints to that.
 - The user moves tickets into sprints and starts/closes sprints. Jira UI configuration is done by the user;
   Claude verifies through the API.
+
+### Sprint planning
+
+Because later work lives in the roadmap, not in Jira ([ADR 0014](../adr/0014-tickets-just-in-time.md)), the
+Jira backlog alone is never the full picture. Before choosing a sprint's work, Claude:
+
+1. Reads [`roadmap.md`](../roadmap.md) (feature phases, Platform steps, scope notes) and any ADRs whose
+   follow-ups aren't ticketed yet.
+2. Lists the Jira backlog of the team space(s) being planned.
+3. Proposes candidates from **both** sources: roadmap steps that are due now may take priority over existing
+   backlog tickets.
+4. The user picks. Roadmap items picked are turned into tickets (Background / Why / … format), and their
+   notes move from the roadmap into the ticket.
+
+Stale backlog tickets found along the way (outdated paths, decided elsewhere) are flagged to the user.
 
 ## Gotchas
 

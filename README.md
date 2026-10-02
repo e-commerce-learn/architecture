@@ -31,8 +31,14 @@ When finished:
 | Background jobs | BullMQ, cron |
 | Cache / queue | Redis |
 | Message broker | RabbitMQ |
+| Workflows | Camunda 8, only for long-running multi-service flows ([ADR 0016](adr/0016-camunda-for-long-running-workflows.md)) |
 | Search | SQL FTS → Meilisearch |
 | Local runtime | Docker Compose (dev + CI only) |
+| API gateway | Gravitee APIM ([ADR 0013](adr/0013-platform-mirrors-company-stack.md)) |
+| Logs + tracing | Elastic Stack (Filebeat, Elasticsearch, Kibana, APM) |
+| Metrics + dashboards | Grafana (+ Prometheus) |
+| Runtime / discovery / secrets (deployed) | HashiCorp Nomad + Consul + Vault on a Mac + MSI laptop cluster |
+| Network (deployed) | Infrastructure private behind a VPN, TLS certificates ([ADR 0015](adr/0015-private-infrastructure-behind-vpn.md)) |
 | Frontends | Angular CRM; customer storefront later |
 
 ## Repos
